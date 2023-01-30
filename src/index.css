@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gray-100 dark:bg-slate-900;
+  @apply text-slate-900 dark:text-white;
+  @apply duration-300 ease-in-out;
+}
