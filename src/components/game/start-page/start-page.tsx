@@ -8,7 +8,6 @@ interface IStartPageProps {
 }
 
 const StartPage = ({ toggleGameState }: IStartPageProps) => {
-  getRandWord();
   return (
     <article className="flex flex-col space-y-3">
       <Settings />

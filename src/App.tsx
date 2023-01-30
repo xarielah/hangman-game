@@ -18,7 +18,7 @@ function App() {
   const toggleGameState = () => setIsGameActive((prev) => !prev);
 
   return (
-    <section className="flex h-[700px] justify-center items-center">
+    <section className="flex min-h-[700px] justify-center items-center">
       {!isGameActive ? (
         <StartPage toggleGameState={toggleGameState} />
       ) : (
