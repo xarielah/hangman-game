@@ -7,3 +7,7 @@ body {
   @apply text-slate-900 dark:text-white;
   @apply duration-300 ease-in-out;
 }
+
+.input-text {
+  @apply rounded-xl cursor-pointer w-full p-2 shadow border-t-4 focus:outline-[1px] dark:text-slate-900 font-bold focus:outline-slate-300/60;
+}

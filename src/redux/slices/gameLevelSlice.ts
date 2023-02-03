@@ -6,20 +6,24 @@ import { GameDifficulties } from "./gameConfigSlice";
 export type GameLevel = {
   timer: number; // In minutes
   maxStrikes: number;
+  showGuesses: boolean;
 };
 
 export const gameLevels: { [key: string]: GameLevel } = {
   [GameDifficulties.EASY]: {
     timer: 7,
     maxStrikes: 5,
+    showGuesses: true,
   },
   [GameDifficulties.MEDIUM]: {
     timer: 5,
     maxStrikes: 4,
+    showGuesses: false,
   },
   [GameDifficulties.HARD]: {
     timer: 3,
     maxStrikes: 3,
+    showGuesses: false,
   },
 };
 
@@ -30,7 +34,10 @@ const gameLevelSlice = createSlice({
   initialState,
   reducers: {
     setGameLevel: (state, action: PayloadAction<GameDifficulties>) => {
-      state = gameLevels[action.payload];
+      const newState = { ...gameLevels[action.payload] };
+      state.timer = newState.timer;
+      state.maxStrikes = newState.maxStrikes;
+      state.showGuesses = newState.showGuesses;
     },
     resetLevel: (state) => {
       state = gameLevels[GameDifficulties.EASY];

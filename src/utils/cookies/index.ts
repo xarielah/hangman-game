@@ -1,5 +1,6 @@
 import { GameConfig } from "../../redux/slices/gameConfigSlice";
-import { SETTINGS_COOKIE } from "./definitions";
+import { DISPLAYNAME_COOKIE, SETTINGS_COOKIE } from "./definitions";
+import Cookies from "js-cookie";
 
 function parseCookies(): any {
   let cookieObject: { [key: string]: string } = {};
@@ -27,4 +28,16 @@ export function getSettingsCookie(): GameConfig | null {
 
   const cookiesObject = parseCookies();
   return cookiesObject[SETTINGS_COOKIE];
+}
+
+export function displayNameCookie() {
+  const setDisplayNameCookie = (name: string) => {
+    Cookies.set(DISPLAYNAME_COOKIE, name);
+  };
+
+  const getDisplayNameCookie = (): string | undefined => {
+    return Cookies.get(DISPLAYNAME_COOKIE);
+  };
+
+  return { setDisplayNameCookie, getDisplayNameCookie };
 }

@@ -9,6 +9,7 @@ export const store = configureStore({
     gameState: gameStateReducer,
     gameLevel: gameLevelSlice,
   },
+  devTools: import.meta.env.PROD ? false : true,
 });
 
 export type RootState = ReturnType<typeof store.getState>;

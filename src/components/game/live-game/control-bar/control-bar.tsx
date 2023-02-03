@@ -1,21 +1,24 @@
 import useGame from "../../../../hooks/use-game";
 import Button from "../../../ui-elements/button";
+import Timer from "./timer";
 
 const ControlBar = () => {
-  const { isPaused, triesLeft, pauseGame, resetGameLevel, unpauseGame } =
+  const { isPaused, triesLeft, pauseGame, resetTheGame, unpauseGame } =
     useGame();
 
   return (
     <nav className="relative">
       <div className="flex justify-between items-center w-full">
-        <div className="w-full absolute font-bold text-2xl flex items-center justify-center">
+        <div className="w-full -z-[99] absolute font-bold text-2xl flex items-center justify-center">
           Tries Left: {triesLeft}
         </div>
-        <div className="font-bold text-3xl">12:00</div>
+        <div className="font-bold text-3xl">
+          <Timer />
+        </div>
         <div className="flex space-x-6 items-center">
           <span
             className="text-red-800 dark:text-slate-700 cursor-pointer font-bold"
-            onClick={resetGameLevel}
+            onClick={resetTheGame}
           >
             Reset
           </span>
