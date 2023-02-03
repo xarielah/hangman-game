@@ -23,13 +23,13 @@ const gameConfigSlice = createSlice({
     setConfig: (state, action: PayloadAction<GameConfig>) => {
       state = { ...action.payload };
     },
-    resetSettings: (state) => {
-      state = initialState;
+    setDifficulty: (state, action: PayloadAction<GameDifficulties>) => {
+      state.difficulty = action.payload;
     },
   },
 });
 
-export const { setConfig, resetSettings } = gameConfigSlice.actions;
+export const { setConfig, setDifficulty } = gameConfigSlice.actions;
 
 export const getGameSettings = (state: RootState) => state.gameConfig;
 
